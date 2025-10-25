@@ -4,8 +4,8 @@ import { PokemonListSkeleton } from "@/components/pokemon-list";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen justify-center font-sans">
-      <main className="flex flex-col items-center min-h-screen max-w-2xl py-16 px-16 space-y-4">
+    <div className="flex justify-center">
+      <main className="flex flex-col items-center max-w-2xl py-4 px-16 space-y-4">
         <h1 className="text-4xl">Pokemon</h1>
         <p className="text-sm text-gray-500 text-center">
           This is a demo of cache components, the following list of Pokemon are
