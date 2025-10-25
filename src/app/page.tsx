@@ -13,8 +13,8 @@ export default function Home() {
         </p>
         <PokemonList />
         <p className="text-sm text-gray-500 text-center">
-          The following list of pokemon are dynamic and will be re-rendered on
-          each request.
+          The following list of pokemon are dynamic and will change on each
+          request. The contents are streamed in when the component is rendered.
         </p>
         <Suspense fallback={<PokemonListSkeleton />}>
           <DynamicPokemonList />
