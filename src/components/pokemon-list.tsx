@@ -1,6 +1,7 @@
 import { getRandomPokemon } from "@/db";
 import PokemonCard from "./pokemon-card";
 import { cacheLife } from "next/cache";
+import { Skeleton } from "./ui/skeleton";
 
 export default async function PokemonList() {
   "use cache";
@@ -8,7 +9,7 @@ export default async function PokemonList() {
   const pokemon = await getRandomPokemon(12);
 
   return (
-    <div className="grid grid-cols-4 gap-4">
+    <div className="w-full grid grid-cols-4 gap-4">
       {pokemon.map((pokemon) => (
         <PokemonCard
           key={pokemon.id}
@@ -26,7 +27,7 @@ export async function DynamicPokemonList() {
   const pokemon = await getRandomPokemon(12);
 
   return (
-    <div className="grid grid-cols-4 gap-4">
+    <div className="w-full grid grid-cols-4 gap-4">
       {pokemon.map((pokemon) => (
         <PokemonCard
           key={pokemon.id}
@@ -35,6 +36,16 @@ export async function DynamicPokemonList() {
           likes={pokemon.likes}
           types={pokemon.types}
         />
+      ))}
+    </div>
+  );
+}
+
+export function PokemonListSkeleton() {
+  return (
+    <div className="grid grid-cols-4 gap-4">
+      {Array.from({ length: 12 }).map((_, index) => (
+        <Skeleton key={index} className="h-[140px] w-[124px]" />
       ))}
     </div>
   );
