@@ -30,6 +30,18 @@ export default function RootLayout({
       >
         <NavLinks />
         {children}
+        <footer className="max-w-2xl mx-auto py-4 px-16 text-center text-xs text-gray-600">
+          All Pokémon images used on this site are provided by the{" "}
+          <a
+            target="_blank"
+            className="underline"
+            href="https://github.com/PokeAPI/sprites/tree/master/sprites/pokemon"
+          >
+            PokeAPI
+          </a>{" "}
+          – Pokémon and all related content are © Nintendo, Game Freak, and The
+          Pokémon Company.
+        </footer>
       </body>
     </html>
   );
