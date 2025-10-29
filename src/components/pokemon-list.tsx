@@ -43,9 +43,9 @@ export async function DynamicPokemonList() {
 
 export function PokemonListSkeleton() {
   return (
-    <div className="grid grid-cols-4 gap-4">
+    <div className="w-full grid grid-cols-4 gap-4">
       {Array.from({ length: 12 }).map((_, index) => (
-        <Skeleton key={index} className="h-[140px] w-[124px]" />
+        <Skeleton key={index} className="h-[140px] w-full" />
       ))}
     </div>
   );

@@ -5,20 +5,24 @@ import { PokemonListSkeleton } from "@/components/pokemon-list";
 export default function Home() {
   return (
     <div className="flex justify-center">
-      <main className="flex flex-col items-center max-w-2xl py-4 px-16 space-y-4">
+      <main className="flex flex-col items-center max-w-6xl py-4 px-16 space-y-4">
         <h1 className="text-4xl">Pokemon</h1>
         <p className="text-sm text-gray-500 text-center">
-          This is a demo of cache components, the following list of Pokemon are
-          cached and will be displayed immediately.
+          This is a demo of cache components
         </p>
-        <PokemonList />
-        <p className="text-sm text-gray-500 text-center">
-          The following list of pokemon are dynamic and will change on each
-          request. The contents are streamed in when the component is rendered.
-        </p>
-        <Suspense fallback={<PokemonListSkeleton />}>
-          <DynamicPokemonList />
-        </Suspense>
+        <div className="grid grid-cols-[1fr_auto_1fr] gap-8 w-full">
+          <div className="flex flex-col space-y-4">
+            <h2 className="text-2xl text-center">Cached Pokemon</h2>
+            <PokemonList />
+          </div>
+          <div className="w-px bg-gray-300"></div>
+          <div className="flex flex-col space-y-4">
+            <h2 className="text-2xl text-center">Dynamic Pokemon</h2>
+            <Suspense fallback={<PokemonListSkeleton />}>
+              <DynamicPokemonList />
+            </Suspense>
+          </div>
+        </div>
       </main>
     </div>
   );
