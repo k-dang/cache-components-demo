@@ -1,4 +1,11 @@
-import { uniqueIndex, integer, pgTable, text } from "drizzle-orm/pg-core";
+import {
+  uniqueIndex,
+  integer,
+  pgTable,
+  text,
+  serial,
+  timestamp,
+} from "drizzle-orm/pg-core";
 
 export const pokemonTable = pgTable(
   "pokemon",
@@ -12,3 +19,19 @@ export const pokemonTable = pgTable(
 );
 
 export type Pokemon = typeof pokemonTable.$inferSelect;
+
+export const pokemonCartTable = pgTable(
+  "pokemon_cart",
+  {
+    id: serial("id").primaryKey(),
+    pokemonId: integer("pokemon_id")
+      .notNull()
+      .references(() => pokemonTable.id, { onDelete: "cascade" }),
+    quantity: integer("quantity").notNull().default(1),
+    createdAt: timestamp("created_at").defaultNow().notNull(),
+    updatedAt: timestamp("updated_at").defaultNow().notNull(),
+  },
+  (table) => [uniqueIndex("pokemon_id_idx").on(table.pokemonId)]
+);
+
+export type PokemonCart = typeof pokemonCartTable.$inferSelect;

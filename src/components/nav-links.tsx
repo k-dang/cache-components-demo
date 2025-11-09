@@ -6,6 +6,7 @@ export default function NavLinks() {
       <Link href="/">Home</Link>
       <Link href="/static">Static</Link>
       <Link href="/dynamic">Dynamic</Link>
+      <Link href="/cache-invalidation">Cache Invalidation</Link>
     </div>
   );
 }

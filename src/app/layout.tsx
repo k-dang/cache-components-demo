@@ -26,10 +26,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased dark`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased dark min-h-screen flex flex-col`}
       >
         <NavLinks />
-        {children}
+        <div className="flex-1">{children}</div>
         <footer className="max-w-2xl mx-auto py-4 px-16 text-center text-xs text-gray-600">
           All Pokémon images used on this site are provided by the{" "}
           <a
