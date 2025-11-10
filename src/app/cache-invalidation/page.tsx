@@ -4,6 +4,7 @@ import PokemonCard from "@/components/pokemon-card";
 import { AddToCartButton } from "@/components/add-to-cart-button";
 import { ClearCartButton } from "@/components/clear-cart-button";
 import { Spinner } from "@/components/ui/spinner";
+import { AddToCartPokemonListSkeleton } from "@/components/pokemon-list";
 
 async function CartPokemonList() {
   const cartItems = await getCartPokemon();
@@ -28,6 +29,7 @@ async function CartPokemonList() {
 }
 
 async function AddToCartPokemonList() {
+  await new Promise((resolve) => setTimeout(resolve, 1000));
   const pokemon = await getRandomPokemon(8);
 
   return (
@@ -50,7 +52,7 @@ async function AddToCartPokemonList() {
 export default function CacheInvalidationPage() {
   return (
     <div className="flex justify-center">
-      <main className="flex flex-col items-center max-w-2xl py-4 px-16 space-y-8">
+      <main className="flex flex-col items-center max-w-6xl py-4 px-16 space-y-4">
         <div className="text-center space-y-2">
           <h1 className="text-4xl">Cache Invalidation</h1>
           <p className="text-sm text-gray-500 max-w-2xl">
@@ -58,15 +60,14 @@ export default function CacheInvalidationPage() {
             cached and will be invalidated when a new pokemon is added to the
             cart.
           </p>
+          <div className="flex justify-center">
+            <ClearCartButton />
+          </div>
         </div>
-        <div className="w-full space-y-8">
-          <div className="space-y-4">
-            <div className="flex items-center justify-between">
-              <h2 className="text-2xl text-center flex-1">Cart Pokemon</h2>
-            </div>
-            <div className="flex justify-center">
-              <ClearCartButton />
-            </div>
+
+        <div className="grid grid-cols-[1fr_auto_1fr] gap-8 w-full">
+          <div className="flex flex-col space-y-4">
+            <h2 className="text-2xl text-center">Cart Pokemon</h2>
             <Suspense
               fallback={
                 <div className="flex justify-center">
@@ -77,15 +78,12 @@ export default function CacheInvalidationPage() {
               <CartPokemonList />
             </Suspense>
           </div>
-          <div className="space-y-4">
+
+          <div className="w-px bg-gray-300"></div>
+
+          <div className="flex flex-col space-y-4">
             <h2 className="text-2xl text-center">Add Pokemon to Cart</h2>
-            <Suspense
-              fallback={
-                <div className="flex justify-center">
-                  <Spinner />
-                </div>
-              }
-            >
+            <Suspense fallback={<AddToCartPokemonListSkeleton />}>
               <AddToCartPokemonList />
             </Suspense>
           </div>

@@ -8,7 +8,7 @@ interface AddToCartButtonProps {
   pokemonId: number;
 }
 
-export function AddToCartButton({ pokemonId }: Readonly<AddToCartButtonProps>) {
+export function AddToCartButton({ pokemonId }: AddToCartButtonProps) {
   const [isPending, startTransition] = useTransition();
 
   const handleAddToCart = () => {
