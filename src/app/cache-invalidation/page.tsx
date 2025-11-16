@@ -29,7 +29,6 @@ async function CartPokemonList() {
 }
 
 async function AddToCartPokemonList() {
-  await new Promise((resolve) => setTimeout(resolve, 1000));
   const pokemon = await getRandomPokemon(8);
 
   return (
