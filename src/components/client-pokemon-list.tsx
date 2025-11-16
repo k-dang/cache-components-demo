@@ -4,9 +4,8 @@ import { useState } from "react";
 import PokemonCard from "@/components/pokemon-card";
 import { Pokemon } from "@/db/schema";
 import { Button } from "@/components/ui/button";
-import { Spinner } from "@/components/ui/spinner";
 
-export default function RouteHandlerPokemonList() {
+export default function ClientPokemonList() {
   const [pokemon, setPokemon] = useState<Pokemon[] | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 

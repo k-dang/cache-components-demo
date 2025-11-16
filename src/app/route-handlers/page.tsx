@@ -1,4 +1,4 @@
-import RouteHandlerPokemonList from "@/components/route-handler-pokemon-list";
+import ClientPokemonList from "@/components/client-pokemon-list";
 
 export default function RouteHandlersPage() {
   return (
@@ -9,7 +9,7 @@ export default function RouteHandlersPage() {
           We can cache the data returned from the route handler as well. This
           page fetches cached data from the API route handler and displays it.
         </p>
-        <RouteHandlerPokemonList />
+        <ClientPokemonList />
       </main>
     </div>
   );

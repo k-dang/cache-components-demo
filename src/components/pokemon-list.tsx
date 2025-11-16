@@ -1,7 +1,6 @@
 import { getRandomPokemon } from "@/db";
 import PokemonCard from "@/components/pokemon-card";
 import { cacheLife } from "next/cache";
-import { Skeleton } from "@/components/ui/skeleton";
 
 export default async function PokemonList() {
   "use cache";
