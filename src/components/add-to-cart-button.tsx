@@ -3,6 +3,7 @@
 import { useTransition } from "react";
 import { upsertPokemonCart } from "@/lib/actions";
 import { Button } from "@/components/ui/button";
+import { Spinner } from "@/components/ui/spinner";
 
 interface AddToCartButtonProps {
   pokemonId: number;
@@ -24,7 +25,7 @@ export function AddToCartButton({ pokemonId }: AddToCartButtonProps) {
       disabled={isPending}
       className="w-full"
     >
-      {isPending ? "Adding..." : "Add to Cart"}
+      {isPending ? <Spinner /> : <span className="truncate">Add</span>}
     </Button>
   );
 }
