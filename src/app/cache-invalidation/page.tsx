@@ -14,7 +14,7 @@ async function CartPokemonList() {
   }
 
   return (
-    <div className="w-full grid grid-cols-4 gap-4">
+    <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
       {cartItems.map((item) => (
         <PokemonCard
           key={item.id}
@@ -33,7 +33,7 @@ async function AddToCartPokemonList() {
   const pokemon = await getRandomPokemon(8);
 
   return (
-    <div className="w-full grid grid-cols-4 gap-4">
+    <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
       {pokemon.map((p) => (
         <div key={p.id} className="flex flex-col gap-2">
           <PokemonCard
@@ -65,7 +65,7 @@ export default function CacheInvalidationPage() {
           </div>
         </div>
 
-        <div className="grid grid-cols-[1fr_auto_1fr] gap-8 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-8 w-full">
           <div className="flex flex-col space-y-4">
             <h2 className="text-2xl text-center">Cart Pokemon</h2>
             <Suspense
@@ -79,7 +79,8 @@ export default function CacheInvalidationPage() {
             </Suspense>
           </div>
 
-          <div className="w-px bg-gray-300"></div>
+          <div className="h-px bg-gray-300 lg:hidden" />
+          <div className="hidden lg:block w-px bg-gray-300" />
 
           <div className="flex flex-col space-y-4">
             <h2 className="text-2xl text-center">Add Pokemon to Cart</h2>
