@@ -1,8 +1,6 @@
-import {
-  DynamicPokemonList,
-  PokemonListSkeleton,
-} from "@/components/pokemon-list";
+import { DynamicPokemonList } from "@/components/pokemon-list";
 import { Suspense } from "react";
+import { PokemonListSkeleton } from "@/components/ui/skeleton";
 
 export default async function DynamicPage() {
   return (
@@ -11,8 +9,8 @@ export default async function DynamicPage() {
         <h1 className="text-4xl">Dynamic Page</h1>
         <p className="text-sm text-gray-500 text-center">
           The following list of pokemon are dynamic and will be re-rendered on
-          each request / visit to this page. The contents should not match the contents
-          of the home page.
+          each request / visit to this page. The contents should not match the
+          contents of the home page.
         </p>
         <Suspense fallback={<PokemonListSkeleton />}>
           <DynamicPokemonList />

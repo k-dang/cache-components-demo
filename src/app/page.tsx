@@ -1,6 +1,6 @@
 import PokemonList, { DynamicPokemonList } from "@/components/pokemon-list";
 import { Suspense } from "react";
-import { PokemonListSkeleton } from "@/components/pokemon-list";
+import { PokemonListSkeleton } from "@/components/ui/skeleton";
 
 export default function Home() {
   return (

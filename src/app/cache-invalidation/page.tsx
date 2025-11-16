@@ -4,7 +4,7 @@ import PokemonCard from "@/components/pokemon-card";
 import { AddToCartButton } from "@/components/add-to-cart-button";
 import { ClearCartButton } from "@/components/clear-cart-button";
 import { Spinner } from "@/components/ui/spinner";
-import { AddToCartPokemonListSkeleton } from "@/components/pokemon-list";
+import { AddToCartPokemonListSkeleton } from "@/components/ui/skeleton";
 
 async function CartPokemonList() {
   const cartItems = await getCartPokemon();
