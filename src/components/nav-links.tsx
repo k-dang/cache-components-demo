@@ -7,6 +7,7 @@ export default function NavLinks() {
       <Link href="/static">Static</Link>
       <Link href="/dynamic">Dynamic</Link>
       <Link href="/cache-invalidation">Cache Invalidation</Link>
+      <Link href="/cart">Cart</Link>
       <Link href="/route-handlers">Route Handlers</Link>
     </div>
   );

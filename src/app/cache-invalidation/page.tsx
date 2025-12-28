@@ -1,32 +1,11 @@
 import { Suspense } from "react";
-import { getCartPokemon, getRandomPokemon } from "@/db";
+import { getRandomPokemon } from "@/db";
+import { CartPokemonList } from "@/components/cart-pokemon-list";
 import PokemonCard from "@/components/pokemon-card";
 import { AddToCartButton } from "@/components/add-to-cart-button";
 import { ClearCartButton } from "@/components/clear-cart-button";
 import { Spinner } from "@/components/ui/spinner";
 import { AddToCartPokemonListSkeleton } from "@/components/ui/skeleton";
-
-async function CartPokemonList() {
-  const cartItems = await getCartPokemon();
-
-  if (cartItems.length === 0) {
-    return <p className="text-gray-500 text-center">No pokemon in cart yet.</p>;
-  }
-
-  return (
-    <div className="w-full grid grid-cols-4 gap-4">
-      {cartItems.map((item) => (
-        <PokemonCard
-          key={item.id}
-          id={item.pokemon.id}
-          name={item.pokemon.name}
-          likes={item.pokemon.likes}
-          types={item.pokemon.types}
-        />
-      ))}
-    </div>
-  );
-}
 
 async function AddToCartPokemonList() {
   const pokemon = await getRandomPokemon(8);
